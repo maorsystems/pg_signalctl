@@ -61,6 +61,4 @@ Up until now, we only talked about the health check that the NLB performs agains
 * Gather a list of the standby nodes connected to it
 * Connect to each standby and validate that this node **is** the primary
 
-Should one answer differently - pg_signalctl will return HTTP code 500 as it will suspect a split-brain. Using --usemajority will require more time for each health check and is considered a heavy operation but might protect against split-brain.
-
-
+Should one answer differently - pg_signalctl will return HTTP code 500 as it will suspect a split-brain. Using --usemajority will require more time for each health check and is considered a heavy operation but might protect against split-brain. Please be aware that by using this flag (--usemajority), when the list of replicas will be empty (for any reason) the status code will revert back to the value provided using the --badresponse - this is done in order to better cope with split-brain situations.
