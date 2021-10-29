@@ -52,4 +52,7 @@ The following list is a command line list that pg_signalctl accepts:
 | log | Optional. Provide a file name for debug logging. This should be removed on a long-term production use. Provided in the following way: --log=/var/log/pgsql/pg_signalctl.log |
 | goodresponse | Optional. set the HTTP return code on a success health check - the default is 200. Provided in the following way: --goodresponse=200 |
 | badresponse | Optional. set the HTTP return code on a failed health check - the default is 500. Provided in the following way: --badresponse=200 |
+| usemajority | Optional. See below details for more information. Provided in the following way: --usemajority |
 
+## Using majority decision
+123
