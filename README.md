@@ -45,9 +45,9 @@ The following list is a command line list that pg_signalctl accepts:
 
 | Arguemnt Name | Description |
 | - | - |
-| port | Mandatory. The port that pg_signalctl listens to. Provided in the following way: --port=8085 |
-| user | Mandatory. The user name to connect to PostgreSQL with. Provided in the following way: --user=pgsignalctl |
-| password | Mandatory. The user's password to connect to PostgreSQL with. Provided in the following way: --password=Abc123 |
+| port | **Mandatory**. The port that pg_signalctl listens to. Provided in the following way: --port=8085 |
+| user | **Mandatory**. The user name to connect to PostgreSQL with. Provided in the following way: --user=pgsignalctl |
+| password | **Mandatory**. The user's password to connect to PostgreSQL with. Provided in the following way: --password=Abc123 |
 | nopass | Optional. If you would like to run the daemon as postgres and you dont need a password for localhost connections. Provided in the following way: --nopass |
 | log | Optional. Provide a file name for debug logging. This should be removed on a long-term production use. Provided in the following way: --log=/var/log/pgsql/pg_signalctl.log |
 | goodresponse | Optional. set the HTTP return code on a success health check - the default is 200. Provided in the following way: --goodresponse=200 |
