@@ -11,19 +11,19 @@ One of the parameters that you should provide to pg_signalctl is the port to lis
 ## QuickStart guide
 Follow these steps to get started - keep in mind that all of the options are listed below - this is just a quick start guide. The following steps were checked on RHEL but any other distro should work as well.
 
-### Perform required installations:
+#### Perform required installations:
 
 ```
 yum install python3 python3-psycopg2
 ```
 
-### Get the latest binary
+#### Get the latest binary
 
 ```
 TBD
 ```
 
-### Start pg_signalctl
+#### Start pg_signalctl
 
 ```
 pg_signalctl --port=8085 --user=postgres --password=MyPass123
