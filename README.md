@@ -54,5 +54,12 @@ The following list is a command line list that pg_signalctl accepts:
 | badresponse | Optional. set the HTTP return code on a failed health check - the default is 500. Provided in the following way: --badresponse=200 |
 | usemajority | Optional. See below details for more information. Provided in the following way: --usemajority |
 
-## Using majority decision
-123
+## Using majority decision for the primary node
+Up until now, we only talked about the health check that the NLB performs against the pg_signalctl on each PostgreSQL node. There is a CLI option (--usemajority) that will do the following actions in order to do its best efforts to prevent a split-brain situation.
+
+* Gather a list of the standby nodes connected to it
+* Connect to each standby and validate that this node **is** the primary
+
+Should one answer differently - pg_signalctl will return HTTP code 500 as it will suspect a split-brain. Using --usemajority will require more time for each health check and is considered a heavy operation but might protect against split-brain.
+
+
