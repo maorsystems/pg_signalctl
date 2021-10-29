@@ -6,7 +6,16 @@ This tool will provide HTTP status 200 when PostgreSQL is up and running and it 
 Many organizations are using a combination of tools that are installed on each VM such as XinetD and/or additional bash scripts that needs handling and installation. pg_signalctl was developed in order to solve this issue by providing the same mechanism within a "one-liner" cli tool. Any load balancer that expects HTTP status codes (almost any NLB that exists) can work with pg_signalctl.
 
 ## Important security note
+#### Network security
 One of the parameters that you should provide to pg_signalctl is the port to listen to. It is under your reponsibility to enable network security so that port would be exposed to the right sources as pg_signalctl does not handle any network security rules at all.
+
+#### PostgreSQL role requirements
+Please use a pre-defined PostgreSQL user that has no permissions except from connecting to one given database ("postgres" for this example). This is how to create a user that would perform the health checks:
+
+```
+CREATE ROLE pgsignalctl WITH LOGIN NOSUPERUSER NOCREATEDB NOREPLICATION PASSWORD 'Abc123';
+GRANT CONNECT ON DATABASE postgres TO pgsignalctl;
+```
 
 ## QuickStart guide
 Follow these steps to get started - keep in mind that all of the options are listed below - this is just a quick start guide. The following steps were checked on RHEL but any other distro should work as well.
