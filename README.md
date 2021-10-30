@@ -53,6 +53,8 @@ The following list is a command line list that pg_signalctl accepts:
 | log | Optional. Provide a file name for debug logging. This should be removed on a long-term production use. Provided in the following way: --log=/var/log/pgsql/pg_signalctl.log |
 | goodresponse | Optional. set the HTTP return code on a success health check - the default is 200. Provided in the following way: --goodresponse=200 |
 | badresponse | Optional. set the HTTP return code on a failed health check - the default is 500. Provided in the following way: --badresponse=200 |
+| goodcommand | Optional. set the command to execute on a success health check. Provided in the following way: --goodcommand |
+| badcommand | Optional. set the command to execute on a failed health check. Provided in the following way: --badcommand |
 | goodtext | Optional. set the HTML body that is returned on a good response. Provided in the following way: --goodtext |
 | badtext | Optional. set the HTML body that is returned on a bad response. Provided in the following way: --badtext |
 | usemajority | Optional. See below details for more information. Provided in the following way: --usemajority |
@@ -64,6 +66,14 @@ Up until now, we only talked about the health check that the NLB performs agains
 * Connect to each standby and validate that this node **is** the primary
 
 Should one answer differently - pg_signalctl will return HTTP code 500 as it will suspect a split-brain. Using --usemajority will require more time for each health check and is considered a heavy operation but might protect against split-brain. Please be aware that by using this flag (--usemajority), when the list of replicas will be empty (for any reason) the status code will revert back to the value provided using the --badresponse - this is done in order to better cope with split-brain situations.
+
+## Executing health check commands
+You have the option to execute a command on every good/bad health check (see the above table for the goodcommand/badcommand arguments. Please be aware that these commands are being executed with the user that runs the pg_signalctl executable - use caution when running pg_signalctl with root. Plus, pg_signalctl will export two variables back to the command shell so you can use them in your script:
+
+| Variable Name | Description |
+| - | - |
+| PGSIGNAL_REMOTEIP | The remote IP address that requested the health check |
+| PGSIGNAL_RESULT | If the health check passed OK the value will be 1 - otherwise it will be 0 |
 
 ## Current status and updates
 Please review the updates from time to time as they may change your usage of pg_signalctl. All messages are using IST time zone.
