@@ -35,7 +35,7 @@ TBD
 #### Start pg_signalctl
 
 ```
-pg_signalctl --port=8085 --user=pgsignalctl --password=Abc123
+pg_signalctl --port=8085 --user=pgsignalctl --pgport=5432 --password=Abc123
 ```
 
 From this point and on any time that the NLB will send a web request (HTTP request using GET method) pg_signalctl will perform the needed checks that PostgreSQL is up and running and will check that the local PostgreSQL is not in recovery.
