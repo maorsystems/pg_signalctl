@@ -75,6 +75,14 @@ You have the option to execute a command on every good/bad health check (see the
 | PGSIGNAL_REMOTEIP | The remote IP address that requested the health check |
 | PGSIGNAL_RESULT | If the health check passed OK the value will be 1 - otherwise it will be 0 |
 
+For example, if your scripts are using Bash to run - this is how you use the variables:
+
+```bash
+#!/bin/bash
+echo $PGSIGNAL_REMOTEIP
+echo $PGSIGNAL_RESULT
+```
+
 ## Current status and updates
 Please review the updates from time to time as they may change your usage of pg_signalctl. All messages are using IST time zone.
 
