@@ -1,4 +1,5 @@
 #!/bin/bash
+PGSIGNAL_PGVERSION=""
 echo ""
 echo " PG_SIGNALCTL Installation"
 echo ""
@@ -8,4 +9,7 @@ if [ ! -d "/usr/pgsql-10/bin" ] && [ ! -d "/usr/pgsql-11/bin" ] && [ ! -d "/usr/
   echo " ERROR: Could not locate any PostgreSQL installation."
   echo ""
   exit 0
+fi
+if [ -d "/usr/pgsql-10/bin" ]; then
+  PGSIGNAL_PGVERSION="10"
 fi
