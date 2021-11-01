@@ -22,8 +22,22 @@ Follow these steps to get started - keep in mind that all of the options are lis
 
 #### Perform required installations:
 
-```
+```bash
 yum install python3 python3-psycopg2
+```
+
+You can use the automatic installer - depending on your operating system.
+
+For CentOS/RHEL/Rocky Linux:
+
+```bash
+wget -O - https://raw.githubusercontent.com/maorsystems/pg_signalctl/main/install_centos.sh | bash
+```
+
+For Ubuntu/Debian Linux:
+
+```bash
+TBD
 ```
 
 #### Get the latest binary
@@ -34,7 +48,7 @@ TBD
 
 #### Start pg_signalctl
 
-```
+```bash
 pg_signalctl --port=8085 --user=pgsignalctl --pgport=5432 --password=Abc123
 ```
 
