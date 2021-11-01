@@ -13,3 +13,15 @@ fi
 if [ -d "/usr/pgsql-10/bin" ]; then
   PGSIGNAL_PGVERSION="10"
 fi
+if [ -d "/usr/pgsql-11/bin" ]; then
+  PGSIGNAL_PGVERSION="11"
+fi
+if [ -d "/usr/pgsql-12/bin" ]; then
+  PGSIGNAL_PGVERSION="12"
+fi
+if [ -d "/usr/pgsql-13/bin" ]; then
+  PGSIGNAL_PGVERSION="13"
+fi
+if [ -d "/usr/pgsql-14/bin" ]; then
+  PGSIGNAL_PGVERSION="14"
+fi
