@@ -104,5 +104,5 @@ Please review the updates from time to time as they may change your usage of pg_
 
 | Date | Update/Notification |
 | - | - |
-| 28-11-2021 15:40 | Version 1.20 is a release candidate (RC) version which supports all features **except** for the 'usemajority' feature. |
+| 28-11-2021 15:40 | Version 1.20 is a general availability (GA) version which supports all features **except** for the 'usemajority' feature. |
 
