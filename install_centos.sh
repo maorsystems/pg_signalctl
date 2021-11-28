@@ -53,3 +53,11 @@ if [ "$CHK" != "1" ]; then
     echo " WARNING: The installation failed. Moving on with installation..."
   fi
 fi
+echo " INFO: Downloading pg_signalctl..."
+wget https://github.com/maorsystems/pg_signalctl/releases/download/pg_signalctl_1_20/pg_signalctl.1.20.tar.gz -O /tmp/pg_signalctl.1.20.tar.gz
+cd /tmp/
+tar xvzf pg_signalctl.1.20.tar.gz
+cp pg_signalctl /usr/pgsql-$PGSIGNAL_PGVERSION/bin
+echo " INFO: Installation complete."
+echo ""
+exit 0
