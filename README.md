@@ -37,7 +37,7 @@ wget -O - https://raw.githubusercontent.com/maorsystems/pg_signalctl/main/instal
 For Ubuntu/Debian Linux:
 
 ```bash
-TBD
+Installation script for Ubuntu/Debian is under development at this time.
 ```
 
 #### Get the latest binary
