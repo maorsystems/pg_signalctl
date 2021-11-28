@@ -33,15 +33,23 @@ CHK=$(which python3)
 if [ $? -ne 0 ]; then
   echo " WARNING: Could not find Python3 executable. Trying to install it automatically..."
   yum install -y python3
+  if [ $? -ne 0 ]; then
+    echo " WARNING: The installation failed. Moving on with installation..."
+  fi
 fi
 CHK=$(which pip3)
 if [ $? -ne 0 ]; then
   echo " WARNING: Could not find Python3 installer executable. Trying to install it automatically..."
   yum install -y python3-pip
-  exit 0
+  if [ $? -ne 0 ]; then
+    echo " WARNING: The installation failed. Moving on with installation..."
+  fi
 fi
 CHK=$(pip3 list --format=columns | grep psycopg2 | grep psycopg2 | wc -l)
 if [ "$CHK" != "1" ]; then
   echo " WARNING: Could not find the psycopg2 python package. Trying to install it automatically..."
   yum install -y python3-psycopg2
+  if [ $? -ne 0 ]; then
+    echo " WARNING: The installation failed. Moving on with installation..."
+  fi
 fi
