@@ -1,5 +1,4 @@
 #!/bin/bash
-clear
 PGSIGNAL_PGVERSION=""
 echo ""
 echo " PG_SIGNALCTL Installation @ CentOS/RHEL"
