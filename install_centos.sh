@@ -29,6 +29,14 @@ if [ "$PGSIGNAL_PGVERSION" == "" ]; then
   echo ""
   exit 0
 fi
+CHK=$(which tar)
+if [ $? -ne 0 ]; then
+  echo " WARNING: Could not tar executable. Trying to install it automatically..."
+  yum install -y tar
+  if [ $? -ne 0 ]; then
+    echo " WARNING: The installation failed. Moving on with installation..."
+  fi
+fi
 CHK=$(which python3)
 if [ $? -ne 0 ]; then
   echo " WARNING: Could not find Python3 executable. Trying to install it automatically..."
