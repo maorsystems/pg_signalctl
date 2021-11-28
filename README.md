@@ -74,6 +74,8 @@ The following list is a command line list that pg_signalctl accepts:
 | usemajority | Optional. See below details for more information. Provided in the following way: --usemajority |
 
 ## Using majority decision for the primary node
+**the majority feature is till under development**
+
 Up until now, we only talked about the health check that the NLB performs against the pg_signalctl on each PostgreSQL node. There is a CLI option (--usemajority) that will do the following actions in order to do its best efforts to prevent a split-brain situation.
 
 * Gather a list of the standby nodes connected to it
