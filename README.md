@@ -104,5 +104,5 @@ Please review the updates from time to time as they may change your usage of pg_
 
 | Date | Update/Notification |
 | - | - |
-| 30-10-2021 12:50 | Version 1.07 is a release cancidate (RC) version which supports all features **except** for the 'usemajority' feature. More updates soon. |
+| 28-11-2021 15:40 | Version 1.20 is a release candidate (RC) version which supports all features **except** for the 'usemajority' feature. |
 
