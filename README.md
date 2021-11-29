@@ -99,6 +99,26 @@ echo $PGSIGNAL_REMOTEIP
 echo $PGSIGNAL_RESULT
 ```
 
+## Daemonize @ CentOS/RedHat/Rocky Linux
+You can demonize pg_signalctl by creating a unit file. In order to do this you need to create a unit file called "/usr/lib/systemd/system/pgsignalctl.service" and paste the following text:
+
+```bash
+[Unit]
+Description=PostgreSQL HA Signal Service
+Documentation=https://github.com/maorsystems/pg_signalctl
+
+[Service]
+User=postgres
+Group=postgres
+ExecStart=/usr/pgsql-12/bin/pg_signalctl --port=12000 --pgport=5432 --user=postgres --dbname=postgres
+KillMode=mixed
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
 ## Current status and updates
 Please review the updates from time to time as they may change your usage of pg_signalctl. All messages are using IST time zone.
 
