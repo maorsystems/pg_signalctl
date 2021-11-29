@@ -118,6 +118,12 @@ KillSignal=SIGINT
 WantedBy=multi-user.target
 ```
 
+After creating this file, you can start/stop the process and enable/disable it. You would need to start it and enable it so it would start automatically.
+
+```bash
+systemctl start pgsignalctl
+systemctl enable pgsignalctl
+```
 
 ## Current status and updates
 Please review the updates from time to time as they may change your usage of pg_signalctl. All messages are using IST time zone.
