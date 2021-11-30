@@ -121,6 +121,7 @@ WantedBy=multi-user.target
 After creating this file, you can start/stop the process and enable/disable it. You would need to start it and enable it so it would start automatically.
 
 ```bash
+systemctl daemon-reload
 systemctl start pgsignalctl
 systemctl enable pgsignalctl
 ```
